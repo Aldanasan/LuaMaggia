@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tarot | Lua Maggia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --bg: #eee8ef;
+      --card: #faf8fa;
+      --border: #c8b8ca;
+      --text: #4a414b;
+      --soft: #756b76;
+      --accent: #9b829f;
+      --gold: #b69b69;
+      --shadow: rgba(75,60,80,0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top,
+        rgba(255,255,255,0.7),
+        transparent 45%),
+        var(--bg);
+
+      font-family: 'Montserrat', sans-serif;
+
+      color: var(--text);
+
+      line-height: 1.6;
+
+      padding: 20px;
+    }
+
+    .navbar {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      max-width: 1100px;
+
+      margin: 0 auto 45px;
+
+      padding: 10px 0;
+    }
+
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: 1.6rem;
+
+      color: var(--text);
+
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+
+      gap: 22px;
+
+      list-style: none;
+
+      font-size: 0.8rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+
+      color: var(--text);
+    }
+
+    .hero {
+      max-width: 1100px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 55px;
+
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+
+      font-size: 0.75rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: 3rem;
+
+      font-weight: 500;
+
+      line-height: 1.1;
+
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: 1.25rem;
+
+      color: var(--soft);
+
+      margin-bottom: 30px;
+    }
+
+    .pricing {
+      display: flex;
+
+      gap: 15px;
+    }
+
+    .price-card {
+      flex: 1;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 18px;
+
+      padding: 20px;
+
+      text-align: center;
+
+      box-shadow: 0 5px 15px var(--shadow);
+    }
+
+    .price-label {
+      font-size: 0.7rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+
+      color: var(--soft);
+    }
+
+    .price {
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: 1.8rem;
+
+      font-weight: 600;
+
+      margin: 8px 0 15px;
+    }
+
+    .pay-button {
+      display: block;
+
+      background: var(--accent);
+
+      color: white;
+
+      padding: 12px;
+
+      border-radius: 25px;
+
+      text-decoration: none;
+
+      font-size: 0.78rem;
+    }
+
+    .pay-button:hover {
+      background: #856d89;
+    }
+
+    .hero-image img {
+      width: 100%;
+
+      max-height: 520px;
+
+      object-fit: cover;
+
+      border-radius: 24px;
+
+      box-shadow: 0 12px 30px var(--shadow);
+    }
+
+    .section {
+      max-width: 800px;
+
+      margin: 70px auto;
+
+      padding: 40px;
+
+      background: rgba(255,255,255,0.55);
+
+      border: 1px solid rgba(200,184,202,0.5);
+
+      border-radius: 24px;
+    }
+
+    .section h2 {
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: 2rem;
+
+      font-weight: 500;
+
+      text-align: center;
+
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      color: var(--soft);
+
+      font-size: 0.9rem;
+
+      text-align: center;
+
+      line-height: 1.8;
+    }
+
+    .features {
+      list-style: none;
+
+      margin-top: 20px;
+    }
+
+    .features li {
+      margin-bottom: 14px;
+
+      padding-left: 25px;
+
+      font-size: 0.88rem;
+
+      position: relative;
+    }
+
+    .features li::before {
+      content: "✦";
+
+      position: absolute;
+
+      left: 0;
+
+      color: var(--gold);
+    }
+
+    .info {
+      display: grid;
+
+      grid-template-columns: repeat(3,1fr);
+
+      gap: 15px;
+
+      margin-top: 25px;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.5);
+
+      border-radius: 15px;
+
+      padding: 18px;
+
+      text-align: center;
+    }
+
+    .info-card span {
+      display: block;
+
+      font-size: 0.7rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+
+      color: var(--accent);
+
+      margin-bottom: 5px;
+    }
+
+    .contact {
+      text-align: center;
+
+      margin: 50px auto 30px;
+    }
+
+    .contact a {
+      display: inline-block;
+
+      padding: 13px 28px;
+
+      border: 1px solid var(--accent);
+
+      border-radius: 30px;
+
+      text-decoration: none;
+
+      color: var(--text);
+
+      font-size: 0.8rem;
+    }
+
+    footer {
+      text-align: center;
+
+      font-size: 0.7rem;
+
+      color: var(--soft);
+
+      padding: 20px;
+    }
+
+    @media(max-width:768px) {
+
+      .navbar {
+        flex-direction: column;
+
+        gap: 15px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      h1 {
+        text-align: center;
+
+        font-size: 2.5rem;
+      }
+
+      .eyebrow {
+        text-align: center;
+      }
+
+      .hero-description {
+        text-align: center;
+      }
+
+      .pricing {
+        flex-direction: column;
+      }
+
+      .info {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 30px 22px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+  <a href="index.html" class="brand">
+    Lua Maggia
+  </a>
+
+  <ul class="nav-links">
+
+    <li>
+      <a href="index.html">
+        Inicio
+      </a>
+    </li>
+
+    <li>
+      <a href="index.html#sesiones">
+        Sesiones
+      </a>
+    </li>
+
+    <li>
+      <a href="#">
+        Contacto
+      </a>
+    </li>
+
+  </ul>
+
+</nav>
+
+
+<main class="hero">
+
+  <div>
+
+    <div class="eyebrow">
+      Sesión individual
+    </div>
+
+    <h1>
+      🔮 Tarot
+    </h1>
+
+    <p class="hero-description">
+      Un espacio de conexión e introspección para
+      explorar aquello que hoy necesita claridad,
+      abrir nuevas perspectivas y escuchar tu propia
+      intuición.
+    </p>
+
+
+    <div class="pricing">
+
+      <div class="price-card">
+
+        <div class="price-label">
+          Seña 50%
+        </div>
+
+        <div class="price">
+          $ XXX
+        </div>
+
+        <!-- PEGAR LINK MERCADO PAGO -->
+
+        <a href="#" class="pay-button" target="_blank">
+          Pagar seña
+        </a>
+
+      </div>
+
+
+      <div class="price-card">
+
+        <div class="price-label">
+          Pago total
+        </div>
+
+        <div class="price">
+          $ XXX
+        </div>
+
+        <!-- PEGAR LINK MERCADO PAGO -->
+
+        <a href="#" class="pay-button" target="_blank">
+          Pagar sesión
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="hero-image">
+
+    <img
+      src="https://via.placeholder.com/600x600"
+      alt="Tarot Lua Maggia"
+    >
+
+  </div>
+
+</main>
+
+
+<section class="section">
+
+  <h2>
+    Sobre la sesión
+  </h2>
+
+  <p>
+
+    Una lectura de Tarot puede ser un espacio para
+    detenerte, observar tu presente y encontrar nuevas
+    perspectivas sobre aquello que estás atravesando.
+
+    <br><br>
+
+    Las cartas funcionan como una herramienta de
+    reflexión e introspección.
+
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    ¿Para quién puede ser esta sesión?
+  </h2>
+
+  <ul class="features">
+
+    <li>
+      Si estás atravesando un momento de incertidumbre.
+    </li>
+
+    <li>
+      Si estás frente a un cambio importante.
+    </li>
+
+    <li>
+      Si querés mirar una situación desde otra perspectiva.
+    </li>
+
+    <li>
+      Si buscás un espacio de introspección y conexión.
+    </li>
+
+  </ul>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    Información
+  </h2>
+
+  <div class="info">
+
+    <div class="info-card">
+
+      💻
+
+      <span>
+        Modalidad
+      </span>
+
+      Online
+
+    </div>
+
+    <div class="info-card">
+
+      ⏳
+
+      <span>
+        Duración
+      </span>
+
+      XX minutos
+
+    </div>
+
+    <div class="info-card">
+
+      🌙
+
+      <span>
+        Horarios
+      </span>
+
+      Lun. a Vie.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    Política de cancelación
+  </h2>
+
+  <p>
+
+    Las cancelaciones realizadas con al menos
+    <strong>12 horas de anticipación</strong>
+    permiten solicitar la devolución de la seña.
+
+    <br><br>
+
+    Las cancelaciones realizadas con menos de
+    12 horas de anticipación no permiten la devolución
+    de la seña.
+
+  </p>
+
+</section>
+
+
+<div class="contact">
+
+  <a href="#" target="_blank">
+    💬 Consultar por WhatsApp
+  </a>
+
+</div>
+
+
+<footer>
+  LUA MAGGIA · SESIONES ONLINE
+</footer>
+
+
+</body>
+</html>
