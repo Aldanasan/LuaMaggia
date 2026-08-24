@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lua Maggia | Sesiones</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           VARIABLES
+        ========================= */
+
+        :root {
+            --background: #f8f5f7;
+            --background-soft: #f1ebf1;
+            --lavender: #b9a6bd;
+            --lavender-dark: #77627d;
+            --text: #403941;
+            --text-soft: #756d74;
+            --gold: #b49a6c;
+            --white: #ffffff;
+            --border: #e4dce3;
+        }
+
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    rgba(185,166,189,0.18),
+                    transparent 45%
+                ),
+                var(--background);
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .moon {
+            font-size: 32px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--lavender-dark);
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(62px, 10vw, 100px);
+            font-weight: 500;
+            line-height: 0.9;
+            margin-bottom: 22px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 27px;
+            color: var(--lavender-dark);
+            margin-bottom: 22px;
+        }
+
+        .hero-text {
+            max-width: 540px;
+            margin: 0 auto 35px;
+            color: var(--text-soft);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .main-button {
+            display: inline-block;
+            padding: 15px 34px;
+            border-radius: 40px;
+            background: var(--lavender-dark);
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .main-button:hover {
+            transform: translateY(-2px);
+            background: #66536c;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services-section {
+            background: var(--white);
+            padding: 100px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 55px;
+        }
+
+        .section-label {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            color: var(--text-soft);
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .services-grid {
+            max-width: 1050px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            position: relative;
+            padding: 38px 34px;
+
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(70, 50, 70, 0.08);
+        }
+
+        .service-icon {
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        .service-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-soft);
+            line-height: 1.7;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .service-button {
+            display: inline-block;
+            color: var(--lavender-dark);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--lavender);
+            padding-bottom: 4px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-section {
+            padding: 100px 20px;
+            background: var(--background-soft);
+        }
+
+        .about-container {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-symbol {
+            font-size: 30px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .about-container h2 {
+            margin-bottom: 25px;
+        }
+
+        .about-container p {
+            max-width: 650px;
+            margin: auto;
+            color: var(--text-soft);
+            line-height: 1.9;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           ONLINE
+        ========================= */
+
+        .online-section {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+
+        .online-container {
+            max-width: 900px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .online-text h2 {
+            margin-bottom: 20px;
+        }
+
+        .online-text p {
+            color: var(--text-soft);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .online-list {
+            list-style: none;
+        }
+
+        .online-list li {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .online-list li::before {
+            content: "✦";
+            color: var(--gold);
+            margin-right: 10px;
+        }
+
+        .online-box {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 45px;
+            text-align: center;
+        }
+
+        .online-box .globe {
+            font-size: 40px;
+            margin-bottom: 18px;
+        }
+
+        .online-box h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .online-box p {
+            color: var(--text-soft);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta-section {
+            padding: 100px 20px;
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(185,166,189,0.22),
+                    transparent 55%
+                ),
+                var(--background);
+        }
+
+        .cta-section h2 {
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: var(--text-soft);
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px 20px;
+            text-align: center;
+            background: #403941;
+            color: rgba(255,255,255,0.65);
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .online-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            h2 {
+                font-size: 40px;
+            }
+
+            .service-card {
+                padding: 30px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="moon">☾</div>
+
+            <div class="eyebrow">
+                Tarot · Energía · Bienestar
+            </div>
+
+            <h1>
+                Lua Maggia
+            </h1>
+
+            <div class="hero-subtitle">
+                Un espacio para volver a vos.
+            </div>
+
+            <p class="hero-text">
+                Sesiones pensadas para acompañarte en procesos de
+                introspección, transformación y conexión con vos misma.
+            </p>
+
+            <a href="#sesiones" class="main-button">
+                VER SESIONES
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         SERVICES
+    ========================= -->
+
+    <section class="services-section" id="sesiones">
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Sesiones
+            </div>
+
+            <h2>
+                Elegí tu espacio
+            </h2>
+
+            <p class="section-description">
+                Cada sesión es un espacio diferente.
+                Explorá las opciones y elegí la que más resuene
+                con lo que estás buscando en este momento.
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <!-- TAROT -->
+
+            <article class="service-card">
+
+                <div class="service-icon">
+                    🔮
+                </div>
+
+                <h3>
+                    Tarot
+                </h3>
+
+                <p>
+                    Una lectura para explorar situaciones,
+                    emociones y caminos posibles, buscando
+                    claridad y una nueva perspectiva.
+                </p>
+
+                <a href="#" class="service-button">
+                    Ver disponibilidad →
+                </a>
+
+            </article>
+
+
+
+            <!-- REIKI -->
+
+            <article class="service-card">
+
+                <div class="service-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    Reiki & Limpieza Energética
+                </h3>
+
+                <p>
+                    Un espacio de armonización y equilibrio
+                    energético para acompañar procesos
+                    personales.
+                </p>
+
+                <a href="#" class="service-button">
+                    Ver disponibilidad →
+                </a>
+
+            </article>
+
+
+
+            <!-- CONSTELACIONES -->
+
+            <article class="service-card">
+
+                <div class="service-icon">
+                    🌿
+                </div>
+
+                <h3>
+                    Constelaciones Familiares
+                </h3>
+
+                <p>
+                    Un espacio de exploración para observar
+                    vínculos, patrones y situaciones que pueden
+                    estar influyendo en tu presente.
+                </p>
+
+                <a href="#" class="service-button">
+                    Ver disponibilidad →
+                </a>
+
+            </article>
+
+
+
+            <!-- MEDIUMNIDAD -->
+
+            <article class="service-card">
+
+                <div class="service-icon">
+                    🌙
+                </div>
+
+                <h3>
+                    Sesiones de Mediumnidad
+                </h3>
+
+                <p>
+                    Un espacio de conexión y acompañamiento
+                    espiritual dentro del enfoque de Lua.
+                </p>
+
+                <a href="#" class="service-button">
+                    Ver disponibilidad →
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section class="about-section">
+
+        <div class="about-container">
+
+            <div class="about-symbol">
+                ✦
+            </div>
+
+            <div class="section-label">
+                Sobre las sesiones
+            </div>
+
+            <h2>
+                Un espacio para vos
+            </h2>
+
+            <p>
+                Cada encuentro es un momento para detenerte,
+                escucharte y explorar aquello que hoy necesita
+                ser visto. Las sesiones se adaptan a cada persona
+                y a su proceso.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ONLINE
+    ========================= -->
+
+    <section class="online-section">
+
+        <div class="online-container">
+
+
+            <div class="online-text">
+
+                <div class="section-label">
+                    Sesiones online
+                </div>
+
+                <h2>
+                    Desde donde estés
+                </h2>
+
+                <p>
+                    Algunas sesiones pueden realizarse de manera
+                    virtual, permitiéndote conectar con este espacio
+                    estés donde estés.
+                </p>
+
+                <ul class="online-list">
+
+                    <li>
+                        Sesiones online
+                    </li>
+
+                    <li>
+                        Atención desde Argentina
+                    </li>
+
+                    <li>
+                        Disponible para personas de otros países
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="online-box">
+
+                <div class="globe">
+                    🌎
+                </div>
+
+                <h3>
+                    Conectá desde cualquier lugar
+                </h3>
+
+                <p>
+                    Próximamente podrás elegir tu sesión,
+                    consultar disponibilidad y reservar
+                    directamente online.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section class="cta-section">
+
+        <div class="section-label">
+            Tu momento
+        </div>
+
+        <h2>
+            ¿Querés reservar una sesión?
+        </h2>
+
+        <p>
+            Elegí el espacio que más resuene con vos.
+        </p>
+
+        <a href="#sesiones" class="main-button">
+            ELEGIR SESIÓN
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        LUA MAGGIA · TAROT & BIENESTAR
+
+    </footer>
+
+
+</body>
+</html>
