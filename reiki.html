@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Reiki y Limpieza Energética | Lua Maggia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+      --bg: #e9eee8;
+      --card: #f9fbf8;
+      --border: #b9c8b8;
+      --text: #465047;
+      --soft: #707a71;
+      --accent: #879f89;
+      --gold: #b69b69;
+      --shadow: rgba(60,75,62,0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.75), transparent 45%),
+        var(--bg);
+
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      padding: 20px;
+    }
+
+    .navbar {
+      max-width: 1100px;
+      margin: 0 auto 45px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      font-size: 0.8rem;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.2rem;
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .hero-description {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      color: var(--soft);
+      margin-bottom: 30px;
+    }
+
+    .pricing {
+      display: flex;
+      gap: 15px;
+    }
+
+    .price-card {
+      flex: 1;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px var(--shadow);
+    }
+
+    .price-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--soft);
+    }
+
+    .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 8px 0 15px;
+    }
+
+    .pay-button {
+      display: block;
+      background: var(--accent);
+      color: white;
+      padding: 12px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 0.78rem;
+      transition: 0.2s;
+    }
+
+    .pay-button:hover {
+      background: #708970;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px var(--shadow);
+    }
+
+    .section {
+      max-width: 800px;
+      margin: 70px auto;
+
+      padding: 42px;
+
+      background: rgba(255,255,255,0.55);
+
+      border: 1px solid rgba(185,200,184,0.5);
+
+      border-radius: 24px;
+    }
+
+    .section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.1rem;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .section p {
+      color: var(--soft);
+      font-size: 0.92rem;
+      text-align: center;
+      line-height: 1.9;
+    }
+
+    .quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem !important;
+      color: var(--text) !important;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .features {
+      list-style: none;
+      margin-top: 25px;
+    }
+
+    .features li {
+      margin-bottom: 15px;
+      padding-left: 27px;
+      font-size: 0.9rem;
+      position: relative;
+    }
+
+    .features li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    .steps {
+      display: grid;
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .step {
+      background: rgba(255,255,255,0.45);
+      border-radius: 15px;
+      padding: 20px;
+    }
+
+    .step strong {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 5px;
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.5);
+      border-radius: 15px;
+      padding: 18px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .info-card span {
+      display: block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin: 5px 0;
+    }
+
+    .faq {
+      margin-top: 25px;
+    }
+
+    .faq-item {
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(135,159,137,0.25);
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .faq-item p {
+      text-align: left;
+    }
+
+    .contact {
+      text-align: center;
+      margin: 50px auto 30px;
+    }
+
+    .contact a {
+      display: inline-block;
+      padding: 14px 30px;
+      border: 1px solid var(--accent);
+      border-radius: 30px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.8rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--soft);
+      padding: 20px;
+    }
+
+    @media(max-width:768px) {
+
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2.6rem;
+      }
+
+      .eyebrow {
+        text-align: center;
+      }
+
+      .hero-description {
+        text-align: center;
+      }
+
+      .pricing {
+        flex-direction: column;
+      }
+
+      .info {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 30px 22px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+  <a href="index.html" class="brand">
+    Lua Maggia
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="index.html#sesiones">Sesiones</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+
+</nav>
+
+
+<main class="hero">
+
+  <div>
+
+    <div class="eyebrow">
+      Sesión de bienestar energético
+    </div>
+
+    <h1>
+      ✨ Reiki & Limpieza Energética
+    </h1>
+
+    <p class="hero-description">
+      Un espacio para bajar el ritmo, conectar con vos
+      y regalarte un momento de calma y armonización.
+    </p>
+
+    <div class="pricing">
+
+      <div class="price-card">
+
+        <div class="price-label">
+          Seña 50%
+        </div>
+
+        <div class="price">
+          $ XXX
+        </div>
+
+        <a href="#" class="pay-button" target="_blank">
+          Reservar con seña
+        </a>
+
+      </div>
+
+      <div class="price-card">
+
+        <div class="price-label">
+          Pago total
+        </div>
+
+        <div class="price">
+          $ XXX
+        </div>
+
+        <a href="#" class="pay-button" target="_blank">
+          Pagar sesión
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="hero-image">
+
+    <img
+      src="https://via.placeholder.com/600x600"
+      alt="Reiki y limpieza energética - Lua Maggia"
+    >
+
+  </div>
+
+</main>
+
+
+<section class="section">
+
+  <h2>
+    Un momento para volver a vos
+  </h2>
+
+  <p class="quote">
+    “A veces necesitamos simplemente parar,
+    respirar y permitirnos recibir.”
+  </p>
+
+  <p>
+    Esta sesión es un espacio pensado para desconectar
+    por un momento del ruido cotidiano y conectar con
+    tu propio bienestar.
+
+    <br><br>
+
+    A través del Reiki y de prácticas de armonización
+    energética, te acompaño a generar un momento de
+    calma, presencia y conexión personal.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    ¿Cuándo puede ser un buen momento para regalarte una sesión?
+  </h2>
+
+  <ul class="features">
+
+    <li>
+      Cuando sentís que necesitás bajar el ritmo.
+    </li>
+
+    <li>
+      Cuando estás atravesando un momento de cambios.
+    </li>
+
+    <li>
+      Cuando sentís cansancio o saturación emocional.
+    </li>
+
+    <li>
+      Cuando querés dedicarte un momento de autocuidado.
+    </li>
+
+    <li>
+      Cuando simplemente sentís que necesitás hacer una pausa.
+    </li>
+
+  </ul>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    ¿Cómo es una sesión conmigo?
+  </h2>
+
+  <div class="steps">
+
+    <div class="step">
+
+      <strong>
+        01 · Nos encontramos
+      </strong>
+
+      Comenzamos conversando brevemente sobre cómo
+      estás y qué te gustaría trabajar o simplemente
+      recibir durante el encuentro.
+
+    </div>
+
+
+    <div class="step">
+
+      <strong>
+        02 · Comenzamos la sesión
+      </strong>
+
+      Buscamos generar un espacio tranquilo y de
+      conexión para que puedas relajarte y estar
+      presente.
+
+    </div>
+
+
+    <div class="step">
+
+      <strong>
+        03 · Cerramos el encuentro
+      </strong>
+
+      Al finalizar nos tomamos unos minutos para
+      conversar sobre cómo fue la experiencia y
+      aquello que quieras compartir.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    ¿Qué podés esperar?
+  </h2>
+
+  <p>
+    Cada persona vive las sesiones de una manera
+    diferente.
+
+    <br><br>
+
+    Mi intención es ofrecerte un espacio cuidado,
+    tranquilo y respetuoso donde puedas conectar
+    con vos misma/o y permitirte un momento de pausa.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    Información
+  </h2>
+
+  <div class="info">
+
+    <div class="info-card">
+      💻
+      <span>Modalidad</span>
+      Online
+    </div>
+
+    <div class="info-card">
+      ⏳
+      <span>Duración</span>
+      XX minutos
+    </div>
+
+    <div class="info-card">
+      🌙
+      <span>Horarios</span>
+      Lunes a viernes
+      <br>
+      9:00 a 18:00
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    Preguntas frecuentes
+  </h2>
+
+  <div class="faq">
+
+    <div class="faq-item">
+
+      <strong>
+        ¿Necesito tener experiencia previa?
+      </strong>
+
+      <p>
+        No. No necesitás conocer Reiki ni haber
+        realizado una sesión anteriormente.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        ¿Tengo que hacer algo antes de la sesión?
+      </strong>
+
+      <p>
+        No hay una preparación especial. Lo ideal es
+        que puedas disponer de un espacio tranquilo
+        y sin interrupciones.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        ¿La sesión es online?
+      </strong>
+
+      <p>
+        Sí. Las sesiones se realizan de manera virtual.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        ¿Esto reemplaza una consulta médica?
+      </strong>
+
+      <p>
+        No. Estas sesiones están planteadas como un
+        espacio complementario de bienestar y
+        acompañamiento personal.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    Política de cancelación
+  </h2>
+
+  <p>
+    Las cancelaciones realizadas con al menos
+    <strong>12 horas de anticipación</strong>
+    permiten solicitar la devolución de la seña.
+
+    <br><br>
+
+    Las cancelaciones realizadas con menos de
+    12 horas de anticipación no permiten la
+    devolución de la seña.
+  </p>
+
+</section>
+
+
+<div class="contact" id="contacto">
+
+  <a href="#" target="_blank">
+    💬 ¿Tenés alguna duda? Escribime por WhatsApp
+  </a>
+
+</div>
+
+
+<footer>
+  LUA MAGGIA · SESIONES ONLINE
+</footer>
+
+</body>
+</html>
