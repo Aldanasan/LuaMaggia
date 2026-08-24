@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,10 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
 
@@ -36,125 +32,87 @@
 
     body {
       background:
-        radial-gradient(circle at top,
-        rgba(255,255,255,0.7),
-        transparent 45%),
+        radial-gradient(circle at top, rgba(255,255,255,0.7), transparent 45%),
         var(--bg);
 
       font-family: 'Montserrat', sans-serif;
-
       color: var(--text);
-
-      line-height: 1.6;
-
+      line-height: 1.7;
       padding: 20px;
     }
 
     .navbar {
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
       max-width: 1100px;
-
       margin: 0 auto 45px;
 
-      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .brand {
       font-family: 'Cormorant Garamond', serif;
-
-      font-size: 1.6rem;
-
+      font-size: 1.7rem;
       color: var(--text);
-
       text-decoration: none;
     }
 
     .nav-links {
       display: flex;
-
       gap: 22px;
-
       list-style: none;
-
       font-size: 0.8rem;
     }
 
     .nav-links a {
-      text-decoration: none;
-
       color: var(--text);
+      text-decoration: none;
     }
 
     .hero {
       max-width: 1100px;
-
       margin: auto;
 
       display: grid;
-
       grid-template-columns: 1fr 1fr;
-
       gap: 55px;
-
       align-items: center;
     }
 
     .eyebrow {
       color: var(--accent);
-
       font-size: 0.75rem;
-
       text-transform: uppercase;
-
       letter-spacing: 2px;
-
       margin-bottom: 10px;
     }
 
     h1 {
       font-family: 'Cormorant Garamond', serif;
-
-      font-size: 3rem;
-
+      font-size: 3.2rem;
       font-weight: 500;
-
       line-height: 1.1;
-
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .hero-description {
       font-family: 'Cormorant Garamond', serif;
-
-      font-size: 1.25rem;
-
+      font-size: 1.35rem;
       color: var(--soft);
-
       margin-bottom: 30px;
     }
 
     .pricing {
       display: flex;
-
       gap: 15px;
     }
 
     .price-card {
       flex: 1;
-
       background: var(--card);
-
       border: 1px solid var(--border);
-
       border-radius: 18px;
-
       padding: 20px;
-
       text-align: center;
 
       box-shadow: 0 5px 15px var(--shadow);
@@ -162,29 +120,21 @@
 
     .price-label {
       font-size: 0.7rem;
-
       text-transform: uppercase;
-
       letter-spacing: 1px;
-
       color: var(--soft);
     }
 
     .price {
       font-family: 'Cormorant Garamond', serif;
-
       font-size: 1.8rem;
-
       font-weight: 600;
-
       margin: 8px 0 15px;
     }
 
     .pay-button {
       display: block;
-
       background: var(--accent);
-
       color: white;
 
       padding: 12px;
@@ -194,6 +144,8 @@
       text-decoration: none;
 
       font-size: 0.78rem;
+
+      transition: 0.2s;
     }
 
     .pay-button:hover {
@@ -202,7 +154,6 @@
 
     .hero-image img {
       width: 100%;
-
       max-height: 520px;
 
       object-fit: cover;
@@ -214,10 +165,9 @@
 
     .section {
       max-width: 800px;
-
       margin: 70px auto;
 
-      padding: 40px;
+      padding: 42px;
 
       background: rgba(255,255,255,0.55);
 
@@ -229,37 +179,49 @@
     .section h2 {
       font-family: 'Cormorant Garamond', serif;
 
-      font-size: 2rem;
+      font-size: 2.1rem;
 
       font-weight: 500;
 
       text-align: center;
 
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .section p {
       color: var(--soft);
 
-      font-size: 0.9rem;
+      font-size: 0.92rem;
 
       text-align: center;
 
-      line-height: 1.8;
+      line-height: 1.9;
+    }
+
+    .quote {
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: 1.45rem !important;
+
+      color: var(--text) !important;
+
+      font-style: italic;
+
+      margin-bottom: 20px;
     }
 
     .features {
       list-style: none;
 
-      margin-top: 20px;
+      margin-top: 25px;
     }
 
     .features li {
-      margin-bottom: 14px;
+      margin-bottom: 15px;
 
-      padding-left: 25px;
+      padding-left: 27px;
 
-      font-size: 0.88rem;
+      font-size: 0.9rem;
 
       position: relative;
     }
@@ -272,6 +234,30 @@
       left: 0;
 
       color: var(--gold);
+    }
+
+    .steps {
+      display: grid;
+
+      gap: 18px;
+
+      margin-top: 25px;
+    }
+
+    .step {
+      background: rgba(255,255,255,0.45);
+
+      border-radius: 15px;
+
+      padding: 20px;
+    }
+
+    .step strong {
+      display: block;
+
+      color: var(--accent);
+
+      margin-bottom: 5px;
     }
 
     .info {
@@ -292,6 +278,8 @@
       padding: 18px;
 
       text-align: center;
+
+      font-size: 0.85rem;
     }
 
     .info-card span {
@@ -305,7 +293,29 @@
 
       color: var(--accent);
 
-      margin-bottom: 5px;
+      margin: 5px 0;
+    }
+
+    .faq {
+      margin-top: 25px;
+    }
+
+    .faq-item {
+      padding: 18px 0;
+
+      border-bottom: 1px solid rgba(155,130,159,0.25);
+    }
+
+    .faq-item strong {
+      display: block;
+
+      margin-bottom: 6px;
+
+      color: var(--text);
+    }
+
+    .faq-item p {
+      text-align: left;
     }
 
     .contact {
@@ -317,7 +327,7 @@
     .contact a {
       display: inline-block;
 
-      padding: 13px 28px;
+      padding: 14px 30px;
 
       border: 1px solid var(--accent);
 
@@ -344,7 +354,6 @@
 
       .navbar {
         flex-direction: column;
-
         gap: 15px;
       }
 
@@ -358,8 +367,7 @@
 
       h1 {
         text-align: center;
-
-        font-size: 2.5rem;
+        font-size: 2.6rem;
       }
 
       .eyebrow {
@@ -381,15 +389,12 @@
       .section {
         padding: 30px 22px;
       }
-
     }
 
   </style>
-
 </head>
 
 <body>
-
 
 <nav class="navbar">
 
@@ -400,21 +405,15 @@
   <ul class="nav-links">
 
     <li>
-      <a href="index.html">
-        Inicio
-      </a>
+      <a href="index.html">Inicio</a>
     </li>
 
     <li>
-      <a href="index.html#sesiones">
-        Sesiones
-      </a>
+      <a href="index.html#sesiones">Sesiones</a>
     </li>
 
     <li>
-      <a href="#">
-        Contacto
-      </a>
+      <a href="#contacto">Contacto</a>
     </li>
 
   </ul>
@@ -435,10 +434,9 @@
     </h1>
 
     <p class="hero-description">
-      Un espacio de conexión e introspección para
-      explorar aquello que hoy necesita claridad,
-      abrir nuevas perspectivas y escuchar tu propia
-      intuición.
+      Un espacio para detenerte, mirar lo que estás
+      atravesando desde otra perspectiva y conectar
+      con aquello que hoy necesitás comprender.
     </p>
 
 
@@ -454,10 +452,8 @@
           $ XXX
         </div>
 
-        <!-- PEGAR LINK MERCADO PAGO -->
-
         <a href="#" class="pay-button" target="_blank">
-          Pagar seña
+          Reservar con seña
         </a>
 
       </div>
@@ -472,8 +468,6 @@
         <div class="price">
           $ XXX
         </div>
-
-        <!-- PEGAR LINK MERCADO PAGO -->
 
         <a href="#" class="pay-button" target="_blank">
           Pagar sesión
@@ -490,7 +484,7 @@
 
     <img
       src="https://via.placeholder.com/600x600"
-      alt="Tarot Lua Maggia"
+      alt="Sesión de Tarot - Lua Maggia"
     >
 
   </div>
@@ -501,20 +495,25 @@
 <section class="section">
 
   <h2>
-    Sobre la sesión
+    Un espacio para vos
   </h2>
 
-  <p>
+  <p class="quote">
+    “A veces no necesitamos que alguien nos diga
+    qué hacer. Necesitamos parar, mirar nuestra
+    situación desde otro lugar y escucharnos.”
+  </p>
 
-    Una lectura de Tarot puede ser un espacio para
-    detenerte, observar tu presente y encontrar nuevas
-    perspectivas sobre aquello que estás atravesando.
+  <p>
+    En mis sesiones de Tarot utilizo las cartas como
+    una herramienta de reflexión, simbolismo e
+    introspección.
 
     <br><br>
 
-    Las cartas funcionan como una herramienta de
-    reflexión e introspección.
-
+    Cada encuentro es diferente porque cada persona
+    llega con una historia, una pregunta y un momento
+    de vida diferente.
   </p>
 
 </section>
@@ -523,25 +522,126 @@
 <section class="section">
 
   <h2>
-    ¿Para quién puede ser esta sesión?
+    ¿Qué podemos explorar?
   </h2>
 
   <ul class="features">
 
     <li>
-      Si estás atravesando un momento de incertidumbre.
+      Amor y vínculos.
     </li>
 
     <li>
-      Si estás frente a un cambio importante.
+      Trabajo, proyectos y nuevos caminos.
     </li>
 
     <li>
-      Si querés mirar una situación desde otra perspectiva.
+      Cambios importantes y nuevos comienzos.
     </li>
 
     <li>
-      Si buscás un espacio de introspección y conexión.
+      Toma de decisiones.
+    </li>
+
+    <li>
+      Situaciones que se repiten.
+    </li>
+
+    <li>
+      Procesos personales.
+    </li>
+
+    <li>
+      Una situación puntual que hoy quieras mirar desde otra perspectiva.
+    </li>
+
+  </ul>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    ¿Cómo es una sesión conmigo?
+  </h2>
+
+  <p>
+    Cada sesión se construye a partir de aquello
+    que estás viviendo en ese momento.
+  </p>
+
+
+  <div class="steps">
+
+    <div class="step">
+
+      <strong>
+        01 · Comenzamos conversando
+      </strong>
+
+      Me contás qué te trae a la sesión y qué
+      te gustaría explorar.
+
+    </div>
+
+
+    <div class="step">
+
+      <strong>
+        02 · Abrimos la lectura
+      </strong>
+
+      A través del Tarot vamos profundizando
+      en la situación y observando diferentes
+      perspectivas.
+
+    </div>
+
+
+    <div class="step">
+
+      <strong>
+        03 · Cerramos el encuentro
+      </strong>
+
+      Nos tomamos un momento para integrar
+      lo que apareció durante la sesión y
+      aquello que te llevás del encuentro.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    Esta sesión puede ser para vos si...
+  </h2>
+
+  <ul class="features">
+
+    <li>
+      Sentís que estás atravesando un momento de cambio.
+    </li>
+
+    <li>
+      Hay una situación que no dejás de pensar y querés verla desde otro lugar.
+    </li>
+
+    <li>
+      Sentís que ciertos patrones o situaciones se repiten.
+    </li>
+
+    <li>
+      Tenés una pregunta concreta que querés explorar.
+    </li>
+
+    <li>
+      Simplemente necesitás un espacio para vos.
     </li>
 
   </ul>
@@ -569,6 +669,7 @@
 
     </div>
 
+
     <div class="info-card">
 
       ⏳
@@ -581,6 +682,7 @@
 
     </div>
 
+
     <div class="info-card">
 
       🌙
@@ -589,7 +691,78 @@
         Horarios
       </span>
 
-      Lun. a Vie.
+      Lunes a viernes
+      <br>
+      9:00 a 18:00
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    Preguntas frecuentes
+  </h2>
+
+  <div class="faq">
+
+    <div class="faq-item">
+
+      <strong>
+        ¿Necesito saber algo de Tarot?
+      </strong>
+
+      <p>
+        No. No necesitás tener conocimientos
+        previos ni experiencia con las cartas.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        ¿Tengo que llegar con una pregunta?
+      </strong>
+
+      <p>
+        No necesariamente. Podés llegar con una
+        situación concreta o simplemente con
+        aquello que hoy tengas ganas de explorar.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        ¿La sesión es online?
+      </strong>
+
+      <p>
+        Sí. Las sesiones se realizan de manera
+        virtual.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        ¿Cómo reservo?
+      </strong>
+
+      <p>
+        Podés reservar abonando el 50% de la sesión
+        o realizar el pago completo.
+      </p>
 
     </div>
 
@@ -605,33 +778,31 @@
   </h2>
 
   <p>
-
     Las cancelaciones realizadas con al menos
     <strong>12 horas de anticipación</strong>
     permiten solicitar la devolución de la seña.
-
+    
     <br><br>
 
     Las cancelaciones realizadas con menos de
-    12 horas de anticipación no permiten la devolución
-    de la seña.
-
+    12 horas de anticipación no permiten la
+    devolución de la seña.
   </p>
 
 </section>
 
 
-<div class="contact">
+<div class="contact" id="contacto">
 
   <a href="#" target="_blank">
-    💬 Consultar por WhatsApp
+    💬 ¿Tenés alguna duda? Escribime por WhatsApp
   </a>
 
 </div>
 
 
 <footer>
-  LUA MAGGIA · SESIONES ONLINE
+  LUA MAGGIA ·
 </footer>
 
 
