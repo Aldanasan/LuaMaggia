@@ -2,507 +2,689 @@
 <html lang="es">
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mediumnidad | Lua Maggia</title>
+  <title>Mediumnidad | Lua Maggia</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
+  <style>
 
-:root {
---bg:#eee8ef;
---card:#faf8fa;
---border:#c8b8ca;
---text:#4a414b;
---soft:#756b76;
---accent:#9b829f;
---gold:#b69b69;
---shadow:rgba(75,60,80,.12);
-}
+    :root {
+      --bg: #e8e5eb;
+      --card: #faf9fb;
+      --border: #c1b9c8;
+      --text: #4b4650;
+      --soft: #726c77;
+      --accent: #897c91;
+      --gold: #b69b69;
+      --shadow: rgba(65,58,70,0.12);
+    }
 
-* {
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body {
-background:
-radial-gradient(circle at top,rgba(255,255,255,.7),transparent 45%),
-var(--bg);
+    body {
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.75), transparent 45%),
+        var(--bg);
 
-font-family:'Montserrat',sans-serif;
-color:var(--text);
-line-height:1.6;
-padding:20px;
-}
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      padding: 20px;
+    }
 
-.navbar {
-max-width:1100px;
-margin:0 auto 45px;
+    .navbar {
+      max-width: 1100px;
+      margin: 0 auto 45px;
 
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.brand {
-font-family:'Cormorant Garamond',serif;
-font-size:1.6rem;
-color:var(--text);
-text-decoration:none;
-}
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      color: var(--text);
+      text-decoration: none;
+    }
 
-.nav-links {
-display:flex;
-gap:22px;
-list-style:none;
-font-size:.8rem;
-}
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      font-size: 0.8rem;
+    }
 
-.nav-links a {
-color:var(--text);
-text-decoration:none;
-}
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+    }
 
-.hero {
-max-width:1100px;
-margin:auto;
+    .hero {
+      max-width: 1100px;
+      margin: auto;
 
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:55px;
-align-items:center;
-}
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
 
-.eyebrow {
-color:var(--accent);
-font-size:.75rem;
-text-transform:uppercase;
-letter-spacing:2px;
-margin-bottom:10px;
-}
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
 
-h1 {
-font-family:'Cormorant Garamond',serif;
-font-size:3rem;
-font-weight:500;
-line-height:1.1;
-margin-bottom:20px;
-}
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.2rem;
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
 
-.hero-description {
-font-family:'Cormorant Garamond',serif;
-font-size:1.25rem;
-color:var(--soft);
-margin-bottom:30px;
-}
+    .hero-description {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      color: var(--soft);
+      margin-bottom: 30px;
+    }
 
-.pricing {
-display:flex;
-gap:15px;
-}
+    .pricing {
+      display: flex;
+      gap: 15px;
+    }
 
-.price-card {
-flex:1;
-background:var(--card);
-border:1px solid var(--border);
-border-radius:18px;
-padding:20px;
-text-align:center;
-box-shadow:0 5px 15px var(--shadow);
-}
+    .price-card {
+      flex: 1;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px var(--shadow);
+    }
 
-.price-label {
-font-size:.7rem;
-text-transform:uppercase;
-letter-spacing:1px;
-color:var(--soft);
-}
+    .price-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--soft);
+    }
 
-.price {
-font-family:'Cormorant Garamond',serif;
-font-size:1.8rem;
-font-weight:600;
-margin:8px 0 15px;
-}
+    .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 8px 0 15px;
+    }
 
-.pay-button {
-display:block;
-background:var(--accent);
-color:white;
-padding:12px;
-border-radius:25px;
-text-decoration:none;
-font-size:.78rem;
-}
+    .pay-button {
+      display: block;
+      background: var(--accent);
+      color: white;
+      padding: 12px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 0.78rem;
+    }
 
-.hero-image img {
-width:100%;
-max-height:520px;
-object-fit:cover;
-border-radius:24px;
-box-shadow:0 12px 30px var(--shadow);
-}
+    .hero-image img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px var(--shadow);
+    }
 
-.section {
-max-width:800px;
-margin:70px auto;
-padding:40px;
+    .section {
+      max-width: 800px;
+      margin: 70px auto;
+      padding: 42px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(193,185,200,0.5);
+      border-radius: 24px;
+    }
 
-background:rgba(255,255,255,.55);
+    .section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.1rem;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 22px;
+    }
 
-border:1px solid rgba(200,184,202,.5);
+    .section p {
+      color: var(--soft);
+      font-size: 0.92rem;
+      text-align: center;
+      line-height: 1.9;
+    }
 
-border-radius:24px;
-}
+    .quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem !important;
+      color: var(--text) !important;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
 
-.section h2 {
-font-family:'Cormorant Garamond',serif;
-font-size:2rem;
-font-weight:500;
-text-align:center;
-margin-bottom:20px;
-}
+    .features {
+      list-style: none;
+      margin-top: 25px;
+    }
 
-.section p {
-color:var(--soft);
-font-size:.9rem;
-text-align:center;
-line-height:1.8;
-}
+    .features li {
+      margin-bottom: 15px;
+      padding-left: 27px;
+      font-size: 0.9rem;
+      position: relative;
+    }
 
-.features {
-list-style:none;
-margin-top:20px;
-}
+    .features li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
 
-.features li {
-margin-bottom:14px;
-padding-left:25px;
-font-size:.88rem;
-position:relative;
-}
+    .steps {
+      display: grid;
+      gap: 18px;
+      margin-top: 25px;
+    }
 
-.features li::before {
-content:"✦";
-position:absolute;
-left:0;
-color:var(--gold);
-}
+    .step {
+      background: rgba(255,255,255,0.45);
+      border-radius: 15px;
+      padding: 20px;
+    }
 
-.info {
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-margin-top:25px;
-}
+    .step strong {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 5px;
+    }
 
-.info-card {
-background:rgba(255,255,255,.5);
-border-radius:15px;
-padding:18px;
-text-align:center;
-}
+    .info {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
 
-.info-card span {
-display:block;
-font-size:.7rem;
-text-transform:uppercase;
-letter-spacing:1px;
-color:var(--accent);
-margin:5px 0;
-}
+    .info-card {
+      background: rgba(255,255,255,0.5);
+      border-radius: 15px;
+      padding: 18px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
 
-.contact {
-text-align:center;
-margin:50px auto 30px;
-}
+    .info-card span {
+      display: block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin: 5px 0;
+    }
 
-.contact a {
-display:inline-block;
-padding:13px 28px;
-border:1px solid var(--accent);
-border-radius:30px;
-text-decoration:none;
-color:var(--text);
-font-size:.8rem;
-}
+    .faq {
+      margin-top: 25px;
+    }
 
-footer {
-text-align:center;
-font-size:.7rem;
-color:var(--soft);
-padding:20px;
-}
+    .faq-item {
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(137,124,145,0.25);
+    }
 
-@media(max-width:768px) {
+    .faq-item strong {
+      display: block;
+      margin-bottom: 6px;
+    }
 
-.navbar {
-flex-direction:column;
-gap:15px;
-}
+    .faq-item p {
+      text-align: left;
+    }
 
-.hero {
-grid-template-columns:1fr;
-}
+    .contact {
+      text-align: center;
+      margin: 50px auto 30px;
+    }
 
-.hero-image {
-order:-1;
-}
+    .contact a {
+      display: inline-block;
+      padding: 14px 30px;
+      border: 1px solid var(--accent);
+      border-radius: 30px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.8rem;
+    }
 
-h1 {
-text-align:center;
-font-size:2.5rem;
-}
+    footer {
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--soft);
+      padding: 20px;
+    }
 
-.eyebrow {
-text-align:center;
-}
+    @media(max-width:768px) {
 
-.hero-description {
-text-align:center;
-}
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
 
-.pricing {
-flex-direction:column;
-}
+      .hero {
+        grid-template-columns: 1fr;
+      }
 
-.info {
-grid-template-columns:1fr;
-}
+      .hero-image {
+        order: -1;
+      }
 
-.section {
-padding:30px 22px;
-}
+      h1 {
+        text-align: center;
+        font-size: 2.6rem;
+      }
 
-}
+      .eyebrow {
+        text-align: center;
+      }
 
-</style>
+      .hero-description {
+        text-align: center;
+      }
 
+      .pricing {
+        flex-direction: column;
+      }
+
+      .info {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 30px 22px;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
 
-
 <nav class="navbar">
 
-<a href="index.html" class="brand">
-Lua Maggia
-</a>
+  <a href="index.html" class="brand">
+    Lua Maggia
+  </a>
 
-<ul class="nav-links">
-
-<li>
-<a href="index.html">Inicio</a>
-</li>
-
-<li>
-<a href="index.html#sesiones">Sesiones</a>
-</li>
-
-<li>
-<a href="#">Contacto</a>
-</li>
-
-</ul>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="index.html#sesiones">Sesiones</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
 
 </nav>
 
 
 <main class="hero">
 
-<div>
+  <div>
 
-<div class="eyebrow">
-Sesión individual
-</div>
+    <div class="eyebrow">
+      Sesión individual
+    </div>
 
-<h1>
-🌙 Mediumnidad
-</h1>
+    <h1>
+      🌙 Mediumnidad
+    </h1>
 
-<p class="hero-description">
+    <p class="hero-description">
+      Un espacio íntimo de conexión, escucha y
+      acompañamiento para quienes sienten el deseo
+      de explorar esta dimensión de su experiencia.
+    </p>
 
-Un espacio íntimo de conexión y acompañamiento
-para explorar aquello que necesitás expresar,
-comprender o cerrar.
+    <div class="pricing">
 
-</p>
+      <div class="price-card">
 
+        <div class="price-label">
+          Seña 50%
+        </div>
 
-<div class="pricing">
+        <div class="price">
+          $ XXX
+        </div>
 
-<div class="price-card">
+        <a href="#" class="pay-button" target="_blank">
+          Reservar con seña
+        </a>
 
-<div class="price-label">
-Seña 50%
-</div>
+      </div>
 
-<div class="price">
-$ XXX
-</div>
+      <div class="price-card">
 
-<a href="#" class="pay-button" target="_blank">
-Pagar seña
-</a>
+        <div class="price-label">
+          Pago total
+        </div>
 
-</div>
+        <div class="price">
+          $ XXX
+        </div>
 
+        <a href="#" class="pay-button" target="_blank">
+          Pagar sesión
+        </a>
 
-<div class="price-card">
+      </div>
 
-<div class="price-label">
-Pago total
-</div>
+    </div>
 
-<div class="price">
-$ XXX
-</div>
-
-<a href="#" class="pay-button" target="_blank">
-Pagar sesión
-</a>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 
-<div class="hero-image">
+  <div class="hero-image">
 
-<img
-src="https://via.placeholder.com/600x600"
-alt="Sesión de Mediumnidad - Lua Maggia"
->
+    <img
+      src="https://via.placeholder.com/600x600"
+      alt="Sesión de Mediumnidad - Lua Maggia"
+    >
 
-</div>
+  </div>
 
 </main>
 
 
 <section class="section">
 
-<h2>
-Sobre la sesión
-</h2>
+  <h2>
+    Un espacio de conexión
+  </h2>
 
-<p>
+  <p class="quote">
+    “Hay experiencias que no siempre sabemos cómo
+    explicar, pero que sentimos profundamente.”
+  </p>
 
-La sesión de mediumnidad ofrece un espacio de escucha,
-conexión y acompañamiento personal.
+  <p>
+    Esta sesión está pensada como un espacio íntimo
+    para quienes sienten el deseo de explorar la
+    mediumnidad y la posibilidad de establecer una
+    conexión desde un lugar cuidado y respetuoso.
 
-<br><br>
+    <br><br>
 
-La experiencia se desarrolla de manera individual,
-respetando el proceso y las necesidades de cada persona.
-
-</p>
-
-</section>
-
-
-<section class="section">
-
-<h2>
-¿Para quién puede ser esta sesión?
-</h2>
-
-<ul class="features">
-
-<li>
-Si sentís la necesidad de conectar con un ser querido.
-</li>
-
-<li>
-Si estás atravesando un proceso de duelo o cierre.
-</li>
-
-<li>
-Si buscás un espacio íntimo de escucha y acompañamiento.
-</li>
-
-<li>
-Si sentís curiosidad por explorar esta experiencia.
-</li>
-
-</ul>
+    Cada experiencia es diferente y cada encuentro
+    se desarrolla de acuerdo con aquello que aparece
+    durante la sesión.
+  </p>
 
 </section>
 
 
 <section class="section">
 
-<h2>
-Información
-</h2>
+  <h2>
+    ¿Para quién puede ser este espacio?
+  </h2>
 
-<div class="info">
+  <ul class="features">
 
-<div class="info-card">
-💻
-<span>Modalidad</span>
-Online
-</div>
+    <li>
+      Para quienes sienten curiosidad por explorar la mediumnidad.
+    </li>
 
-<div class="info-card">
-⏳
-<span>Duración</span>
-XX minutos
-</div>
+    <li>
+      Para quienes han vivido experiencias que desean comprender.
+    </li>
 
-<div class="info-card">
-🌙
-<span>Horarios</span>
-Lun. a Vie.
-</div>
+    <li>
+      Para quienes buscan un espacio de escucha y acompañamiento.
+    </li>
 
-</div>
+    <li>
+      Para quienes sienten una conexión especial con el mundo espiritual.
+    </li>
+
+    <li>
+      Para quienes simplemente desean vivir la experiencia desde un lugar respetuoso y consciente.
+    </li>
+
+  </ul>
 
 </section>
 
 
 <section class="section">
 
-<h2>
-Política de cancelación
-</h2>
+  <h2>
+    ¿Cómo es una sesión conmigo?
+  </h2>
 
-<p>
+  <div class="steps">
 
-Las cancelaciones realizadas con al menos
-<strong>12 horas de anticipación</strong>
-permiten solicitar la devolución de la seña.
+    <div class="step">
 
-<br><br>
+      <strong>
+        01 · Abrimos el espacio
+      </strong>
 
-Las cancelaciones realizadas con menos de
-12 horas de anticipación no permiten la devolución
-de la seña.
+      Comenzamos conversando brevemente para
+      conocer qué te trae a la sesión y cómo
+      estás viviendo este momento.
 
-</p>
+    </div>
+
+
+    <div class="step">
+
+      <strong>
+        02 · Nos conectamos
+      </strong>
+
+      Durante la sesión exploramos la experiencia
+      desde la percepción y las herramientas con
+      las que trabajo.
+
+    </div>
+
+
+    <div class="step">
+
+      <strong>
+        03 · Compartimos
+      </strong>
+
+      Te comparto aquello que aparece durante
+      el encuentro y dejamos un espacio para que
+      puedas expresar lo que la experiencia
+      significó para vos.
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<div class="contact">
+<section class="section">
 
-<a href="#" target="_blank">
-💬 Consultar por WhatsApp
-</a>
+  <h2>
+    Un espacio cuidado
+  </h2>
+
+  <p>
+    Cada persona vive este tipo de experiencia
+    de una manera diferente.
+
+    <br><br>
+
+    Por eso considero importante que el encuentro
+    sea siempre desde el respeto, la escucha y
+    la libertad de cada persona.
+
+    <br><br>
+
+    No necesitás venir con una expectativa determinada.
+    Simplemente podés permitirte vivir la experiencia.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    Información
+  </h2>
+
+  <div class="info">
+
+    <div class="info-card">
+      💻
+      <span>Modalidad</span>
+      Online
+    </div>
+
+    <div class="info-card">
+      ⏳
+      <span>Duración</span>
+      XX minutos
+    </div>
+
+    <div class="info-card">
+      🌙
+      <span>Horarios</span>
+      Lunes a viernes
+      <br>
+      9:00 a 18:00
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    Preguntas frecuentes
+  </h2>
+
+  <div class="faq">
+
+    <div class="faq-item">
+
+      <strong>
+        ¿Necesito haber tenido experiencias previas?
+      </strong>
+
+      <p>
+        No. No es necesario tener conocimientos
+        ni experiencias anteriores.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        ¿Tengo que llegar con una pregunta?
+      </strong>
+
+      <p>
+        No necesariamente. Podemos comenzar
+        conversando sobre aquello que te trae
+        a la sesión.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        ¿La sesión es online?
+      </strong>
+
+      <p>
+        Sí. Actualmente las sesiones se realizan
+        de manera virtual.
+      </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <strong>
+        ¿Qué puedo esperar de la sesión?
+      </strong>
+
+      <p>
+        Cada experiencia es diferente. La sesión
+        busca ofrecer un espacio de conexión,
+        escucha y acompañamiento.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <h2>
+    Política de cancelación
+  </h2>
+
+  <p>
+    Las cancelaciones realizadas con al menos
+    <strong>12 horas de anticipación</strong>
+    permiten solicitar la devolución de la seña.
+
+    <br><br>
+
+    Las cancelaciones realizadas con menos de
+    12 horas de anticipación no permiten la
+    devolución de la seña.
+  </p>
+
+</section>
+
+
+<div class="contact" id="contacto">
+
+  <a href="#" target="_blank">
+    💬 ¿Tenés alguna duda? Escribime por WhatsApp
+  </a>
 
 </div>
 
 
 <footer>
-LUA MAGGIA · SESIONES ONLINE
+  LUA MAGGIA · SESIONES ONLINE
 </footer>
 
 </body>
